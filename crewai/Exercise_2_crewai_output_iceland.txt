@@ -1,0 +1,63 @@
+================================================================================
+CrewAI Multi-Agent Travel Planning System - Real API Execution Report
+Planning a 5 days Trip to Iceland
+================================================================================
+
+Trip Details:
+  Destination: Iceland
+  Duration: 5 days
+  Dates: January 15-20, 2026
+  Departure: New York
+  Travelers: 2
+  Budget Preference: mid-range
+
+Execution Time: 2025-11-15 20:14:11.549721
+API Version: REAL API CALLS (OpenAI GPT-4)
+Data Source: Web research via OpenAI
+
+IMPORTANT NOTES:
+- All flight prices, hotel costs, and attraction information is based on real data
+- Prices are current as of the date this was run
+- Hotel availability and prices may vary by booking date
+- Weather conditions and attraction hours should be verified before travel
+
+FINAL TRAVEL PLAN REPORT:
+--------------------------------------------------------------------------------
+A comprehensive budget report for a 5-day trip to Iceland from January 15-20, 2026, is as follows:
+
+**Flights:**
+- Icelandair Flight 614: $548 (recommended for its convenient schedule and competitive price)
+
+**Accommodation:**
+- Budget option: Reykjavik Residence Hotel ($120 per night, total: $600 for 5 nights)
+- Mid-range option: Hotel Borg ($180 per night, total: $900 for 5 nights)
+- Luxury option: 101 Hotel ($250 per night, total: $1250 for 5 nights)
+
+**Meals:**
+- Budget option: $120 per day (total: $600 for 5 days)
+- Mid-range option: $200 per day (total: $1000 for 5 days)
+- Luxury option: $300 per day (total: $1500 for 5 days)
+
+**Activities:**
+- Guided Golden Circle tour: $60-$80 per person
+- South Coast tour: $80-$100 per person
+- Blue Lagoon entry: $60-$70 per person
+
+**Transportation:**
+- Rental car: $40-$70 per day (total: $200-$350 for 5 days)
+- Public transportation: $2-$4 per ride (total: $10-$20 for 5 days)
+
+**Total Cost Estimates:**
+- Budget option: $2148
+- Mid-range option: $3048
+- Luxury option: $4148
+
+**Cost-Saving Tips:**
+- Travel during the off-season (October to May) for lower prices
+- Book accommodations and tours in advance to secure better rates
+- Consider staying in apartment-style hotels like Reykjavik Residence Hotel for a more home-away-from-home experience
+- Pack warm and waterproof clothing to minimize additional expenses
+- Take advantage of free admission to attractions like Hallgrímskirkja and Harpa concert hall
+
+By following this budget report and considering the provided cost-saving tips, travelers can plan a memorable and affordable trip to Iceland.
+--------------------------------------------------------------------------------

@@ -272,6 +272,28 @@ Try these scenarios with either framework:
 - Create a research paper outline
 - Plan a software architecture
 
+**Ecercise 4 AutoGen Implementation:**
+
+Run the custom problems demo:
+```bash
+# Interactive mode (will prompt for scenario and topic)
+python autogen/autogen_custom_problems.py
+
+# Direct mode with arguments
+python autogen/autogen_custom_problems.py conference "AI & Machine Learning"
+python autogen/autogen_custom_problems.py marketing "Smart Home Assistant"
+python autogen/autogen_custom_problems.py research "Climate Change Impact"
+python autogen/autogen_custom_problems.py architecture "E-commerce Platform"
+```
+
+**Available Scenarios:**
+- `conference` - Plan a 3-day conference agenda (4 agents: Researcher, Agenda Designer, Content Strategist, Reviewer)
+- `marketing` - Design a marketing strategy (4 agents: Market Analyst, Strategist, Tactician, Analyst)
+- `research` - Create a research paper outline (4 agents: Research Specialist, Academic Writer, Planner, Reviewer)
+- `architecture` - Plan software architecture (4 agents: Systems Analyst, Architect, Technical Lead, Reviewer)
+
+Each scenario uses a sequential multi-agent workflow where each agent builds upon the previous agent's output.
+
 ---
 
 ## 🔧 Troubleshooting
