@@ -1,0 +1,50 @@
+================================================================================
+CrewAI Multi-Agent Travel Planning System - Real API Execution Report
+Planning a 5 days Trip to Iceland
+================================================================================
+
+Trip Details:
+  Destination: Iceland
+  Duration: 5 days
+  Dates: January 15-20, 2026
+  Departure: New York
+  Travelers: 2
+  Budget Preference: mid-range
+
+Execution Time: 2025-11-15 20:29:32.965549
+API Version: REAL API CALLS (OpenAI GPT-4)
+Data Source: Web research via OpenAI
+
+IMPORTANT NOTES:
+- All flight prices, hotel costs, and attraction information is based on real data
+- Prices are current as of the date this was run
+- Hotel availability and prices may vary by booking date
+- Weather conditions and attraction hours should be verified before travel
+
+FINAL TRAVEL PLAN REPORT:
+--------------------------------------------------------------------------------
+To provide a comprehensive cultural guide for Iceland, including local customs, etiquette guidelines, practical travel tips, cultural do's and don'ts, and advice for respectful and enjoyable travel in Iceland, consider the following insights and tips:
+
+1. **Cultural Customs and Etiquette**: Icelanders are known for their respect for nature and the environment. Visitors should be mindful of this and take necessary steps to minimize their impact on the natural surroundings. For example, staying on designated hiking trails and not littering.
+
+2. **Local Tipping Practices and Payment Methods**: Tipping in Iceland is not expected but is appreciated for good service. Credit cards are widely accepted, and contactless payments are common. It's a good idea to have some local currency, Icelandic Krona (ISK), for smaller purchases or at places that might not accept cards.
+
+3. **Important Phrases or Words in the Local Language**: Learning a few basic phrases in Icelandic can go a long way in showing respect for the culture. Phrases like "Halló" (hello), "Takk" (thank you), and "Bless" (goodbye) are useful. Icelandic pronunciation can be challenging, but attempting to speak the language is appreciated by locals.
+
+4. **Cultural Do's and Don'ts**: 
+    - Do respect the natural environment and follow guidelines to protect it.
+    - Don't touch or damage the unique landscapes or geological formations.
+    - Do learn about and respect Icelandic customs and traditions.
+    - Don't assume everything is about the Viking history; modern Iceland has a lot to offer as well.
+
+5. **Local Dining Customs and Food Culture**: Icelandic cuisine is known for its fresh seafood, lamb, and Skyr (a type of yogurt). Dining customs are generally informal, but it's considered polite to wait for the host to start eating before you begin your meal. Trying local specialties like fermented shark, Hákarl, can be a unique experience, but it's not for everyone.
+
+6. **Transportation Etiquette and Local Norms**: When using public transportation, it's customary to greet the driver when boarding. For car rentals, driving on F-roads (mountain roads) requires a 4x4 vehicle, and always check the weather forecast before heading out. Respect the rules of the road and be mindful of other drivers, especially in the rural areas where roads can be narrow.
+
+7. **Safety Tips and Cultural Sensitivities**:
+    - Be prepared for unpredictable weather, especially when exploring the countryside. Always check the weather forecast and road conditions before heading out.
+    - Respect the power of nature; keep a safe distance from glacial rivers, waterfalls, and geothermal areas.
+    - Be mindful of local sensitivities, especially regarding the environment and cultural heritage sites. Respect any rules or guidelines in place to protect these areas.
+
+By understanding and respecting these cultural insights, travelers can have a more enjoyable and meaningful experience in Iceland, while also contributing to the preservation of the country's unique natural and cultural heritage.
+--------------------------------------------------------------------------------

@@ -114,6 +114,30 @@ def search_attractions_activities(destination: str) -> str:
 
 
 @tool
+def search_local_culture_tips(destination: str) -> str:
+    """
+    Search for local culture, customs, and travel tips for a destination.
+    Provides cultural insights, etiquette, and practical local knowledge.
+    """
+    search_query = f"{destination} culture customs etiquette local tips travel advice 2026"
+
+    return f"""
+    Research task: Find local culture and travel tips for {destination}.
+
+    Please research and provide:
+    1. Cultural customs and etiquette to be aware of
+    2. Local tipping practices and payment methods
+    3. Important phrases or words in the local language
+    4. Cultural do's and don'ts
+    5. Local dining customs and food culture
+    6. Transportation etiquette and local norms
+    7. Safety tips and cultural sensitivities
+
+    Focus on practical, actionable advice for travelers visiting {destination}.
+    """
+
+
+@tool
 def search_travel_costs(destination: str) -> str:
     """
     Search for real travel costs and budgeting information.
@@ -145,15 +169,16 @@ def search_travel_costs(destination: str) -> str:
 def create_flight_agent(destination: str, trip_dates: str):
     """Create the Flight Specialist agent with real research tools."""
     return Agent(
-        role="Flight Specialist",
-        goal=f"Research and recommend the best flight options for the {destination} trip "
-             f"({trip_dates}), considering dates, airlines, prices, and flight durations. "
-             f"Use real data from flight booking sites to provide accurate, current pricing.",
-        backstory="You are an experienced flight specialist with deep knowledge of "
-                  "airline schedules, pricing patterns, and travel routes. You excel at "
-                  "finding the best flight options that balance cost and convenience. "
-                  "You have booked thousands of flights and know the best times to fly. "
-                  "You always research current prices and use real booking site data.",
+        role="Hotel Specialist",
+        goal=f"Research and recommend the best hotel options for the {destination} trip "
+             f"({trip_dates}), considering location, amenities, pricing, guest ratings, and overall value. "
+             f"Use real data from trusted hotel booking platforms to provide accurate, up-to-date information.",
+        backstory="You are an experienced Academic Researcher with extensive knowledge of global hotel chains, "
+                  "local accommodations, pricing trends, and seasonal availability. You excel at finding stays "
+                  "that balance comfort, location, and affordability. You have helped thousands of travelers "
+                  "choose the perfect hotels by analyzing real-time prices, guest reviews, and neighborhood "
+                  "suitability. You always research current data and provide recommendations that best match "
+                  "the Academic's needs.",
         tools=[search_flight_prices],
         verbose=True,
         allow_delegation=False
@@ -217,6 +242,25 @@ def create_budget_agent(destination: str):
                   "compromising the travel experience. You research actual current prices "
                   "and provide realistic budget estimates.",
         tools=[search_travel_costs],
+        verbose=True,
+        allow_delegation=False
+    )
+
+
+def create_local_expert_agent(destination: str):
+    """Create a Local Expert agent that provides cultural insights and local tips."""
+    return Agent(
+        role="Local Culture Expert",
+        goal=f"Provide essential cultural insights, local customs, and practical travel tips "
+             f"for travelers visiting {destination}. Help travelers understand local etiquette, "
+             f"cultural norms, and avoid common mistakes.",
+        backstory=f"You are a local expert and cultural guide with deep knowledge of {destination}. "
+                  f"You have lived in or extensively traveled to {destination} and understand "
+                  f"its culture, customs, and local way of life. You help travelers navigate "
+                  f"cultural differences, understand local etiquette, and provide practical tips "
+                  f"for a respectful and enjoyable visit. You know the do's and don'ts, "
+                  f"local customs, and cultural sensitivities that travelers should be aware of.",
+        tools=[search_local_culture_tips],
         verbose=True,
         allow_delegation=False
     )
@@ -304,6 +348,21 @@ def create_budget_task(budget_agent, destination: str, trip_duration: str):
     )
 
 
+def create_local_culture_task(local_expert_agent, destination: str):
+    """Define the local culture and tips task (NEW TASK)."""
+    return Task(
+        description=f"Provide essential cultural insights and practical travel tips for {destination}. "
+                   f"Research and share information about local customs, etiquette, cultural norms, "
+                   f"tipping practices, important local phrases, dining customs, transportation etiquette, "
+                   f"and cultural do's and don'ts. Help travelers understand how to be respectful visitors "
+                   f"and avoid common cultural mistakes. Include safety tips and cultural sensitivities.",
+        agent=local_expert_agent,
+        expected_output=f"A comprehensive cultural guide for {destination} including local customs, "
+                       f"etiquette guidelines, practical travel tips, cultural do's and don'ts, "
+                       f"and advice for respectful and enjoyable travel in {destination}"
+    )
+
+
 # ============================================================================
 # CREW ORCHESTRATION
 # ============================================================================
@@ -361,17 +420,20 @@ def main(destination: str = "Iceland", trip_duration: str = "5 days",
     print()
 
     # Create agents with destination parameters
-    print("[1/4] Creating Flight Specialist Agent (researches real flights)...")
+    print("[1/5] Creating Flight Specialist Agent (researches real flights)...")
     flight_agent = create_flight_agent(destination, trip_dates)
 
-    print("[2/4] Creating Accommodation Specialist Agent (researches real hotels)...")
+    print("[2/5] Creating Accommodation Specialist Agent (researches real hotels)...")
     hotel_agent = create_hotel_agent(destination, trip_dates)
 
-    print("[3/4] Creating Travel Planner Agent (researches real attractions)...")
+    print("[3/5] Creating Travel Planner Agent (researches real attractions)...")
     itinerary_agent = create_itinerary_agent(destination, trip_duration)
 
-    print("[4/4] Creating Financial Advisor Agent (analyzes real costs)...")
+    print("[4/5] Creating Financial Advisor Agent (analyzes real costs)...")
     budget_agent = create_budget_agent(destination)
+
+    print("[5/5] Creating Local Culture Expert Agent (provides cultural insights)...")
+    local_expert_agent = create_local_expert_agent(destination)
 
     print("\n✅ All agents created successfully!")
     print()
@@ -382,18 +444,19 @@ def main(destination: str = "Iceland", trip_duration: str = "5 days",
     hotel_task = create_hotel_task(hotel_agent, destination, trip_dates)
     itinerary_task = create_itinerary_task(itinerary_agent, destination, trip_duration, trip_dates)
     budget_task = create_budget_task(budget_agent, destination, trip_duration)
+    local_culture_task = create_local_culture_task(local_expert_agent, destination)  # NEW TASK
 
     print("Tasks created successfully!")
     print()
 
     # Create the crew with sequential task execution
     print("Forming the Travel Planning Crew...")
-    print("Task Sequence: FlightAgent → HotelAgent → ItineraryAgent → BudgetAgent")
+    print("Task Sequence: FlightAgent → HotelAgent → ItineraryAgent → BudgetAgent → LocalExpertAgent")
     print()
 
     crew = Crew(
-        agents=[flight_agent, hotel_agent, itinerary_agent, budget_agent],
-        tasks=[flight_task, hotel_task, itinerary_task, budget_task],
+        agents=[flight_agent, hotel_agent, itinerary_agent, budget_agent, local_expert_agent],
+        tasks=[flight_task, hotel_task, itinerary_task, budget_task, local_culture_task],
         verbose=True,
         process="sequential"  # Sequential task execution
     )
